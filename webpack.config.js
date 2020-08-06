@@ -41,18 +41,19 @@ module.exports = {
     },
     module: {
         rules: [
-
             {
                 test: /\.(ts|tsx)?$/,
-                use: 'babel-loader',
-                exclude: /node_modules/,
+                use: {
+                    loader: 'awesome-typescript-loader'
+                },
+                exclude: /node_modules/
             },
             {
                 use: [
                     'style-loader',
                     'css-loader'
                 ],
-                test: /\.css$/
+                test: /\.css$/,
             },
             {
                 loader: 'file-loader',
@@ -63,9 +64,10 @@ module.exports = {
                 },
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jp(e*)g|gif)$/,
                 loader: 'file-loader',
                 options: {
+                    name: 'images/[hash]-[name].[ext]',
                     outputPath: 'assets/images',
                 },
             },

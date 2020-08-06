@@ -3,21 +3,52 @@
  Email: truongdx@runsystem.net
  */
 import * as React from 'react';
-const myImage = require ('../../public/images/logo.svg') ;
-class App extends React.Component {
+// @ts-ignore
+import Logo from '../../public/assets/logo/logo-salefie.png';
+// @ts-ignore
+import face6 from '../../public/images/faces/face6.jpg';
+// @ts-ignore
+import face5 from '../../public/images/faces/face5.jpg';
+// @ts-ignore
+import face4 from '../../public/images/faces/face4.jpg';
+// @ts-ignore
+import face3 from '../../public/images/faces/face3.jpg';
+// @ts-ignore
+import face2 from '../../public/images/faces/face2.jpg';
+// @ts-ignore
+import face1 from '../../public/images/faces/face1.jpg';
 
+interface isState{
+	isOpen: boolean
+}
+
+class App extends React.Component <{}, isState> {
+	constructor(props: {}) {
+		super(props);
+		this.state = {
+			isOpen: false
+		};
+	}
+	toggle=()=>{
+		this.setState({ isOpen: !this.state.isOpen })
+	}
+	handleClick = (e): void=>{
+		console.log(e);
+		e.preventDefault();
+	};
 	render(){
+		const {isOpen} = this.state ;
 		return (
-
 			<div>
 				<nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 					<div className="navbar-brand-wrapper d-flex justify-content-center">
 						<div className="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-							<a className="navbar-brand brand-logo"
-							   href="../../index.html">
-								<img src="../../public/images/logo.svg" alt="logo"/>
+							<a className="navbar-brand brand-logo">
+								<img src={Logo} alt="logo"  />
 							</a>
-							<a className="navbar-brand brand-logo-mini" href="../../index.html"><img src="./../../../public/images/logo-mini.svg" alt="logo" /></a>
+							<a className="navbar-brand brand-logo-mini">
+								<img src={Logo} alt="logo" />
+							</a>
 							<button className="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
 								<span className="typcn typcn-th-menu" />
 							</button>
@@ -26,8 +57,8 @@ class App extends React.Component {
 					<div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
 						<ul className="navbar-nav mr-lg-2">
 							<li className="nav-item nav-profile dropdown">
-								<a className="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-									<img src="../../../../images/faces/face5.jpg" alt="profile" />
+								<a className="nav-link" data-toggle="dropdown" id="profileDropdown">
+									<img src={face5} alt="profile" />
 									<span className="nav-profile-name">Eugenia Mullins</span>
 								</a>
 								<div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -47,13 +78,14 @@ class App extends React.Component {
 						</ul>
 						<ul className="navbar-nav navbar-nav-right">
 							<li className="nav-item nav-date dropdown">
-								<a className="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+								<a className="nav-link d-flex justify-content-center align-items-center" onClick={(e)=>this.handleClick(e)}>
 									<h6 className="date mb-0">Today : Mar 23</h6>
 									<i className="typcn typcn-calendar" />
 								</a>
 							</li>
 							<li className="nav-item dropdown">
-								<a className="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+								<a className="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+								   id="messageDropdown" onClick={(e)=>this.handleClick(e)} data-toggle="dropdown">
 									<i className="typcn typcn-cog-outline mx-0" />
 									<span className="count" />
 								</a>
@@ -61,7 +93,7 @@ class App extends React.Component {
 									<p className="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
 									<a className="dropdown-item preview-item">
 										<div className="preview-thumbnail">
-											<img src="../../../../images/faces/face4.jpg" alt="image" className="profile-pic" />
+											<img src={face4} alt="image" className="profile-pic" />
 										</div>
 										<div className="preview-item-content flex-grow">
 											<h6 className="preview-subject ellipsis font-weight-normal">David Grey
@@ -73,7 +105,7 @@ class App extends React.Component {
 									</a>
 									<a className="dropdown-item preview-item">
 										<div className="preview-thumbnail">
-											<img src="../../../../images/faces/face2.jpg" alt="image" className="profile-pic" />
+											<img src={face2} alt="image" className="profile-pic" />
 										</div>
 										<div className="preview-item-content flex-grow">
 											<h6 className="preview-subject ellipsis font-weight-normal">Tim Cook
@@ -85,7 +117,7 @@ class App extends React.Component {
 									</a>
 									<a className="dropdown-item preview-item">
 										<div className="preview-thumbnail">
-											<img src="../../../../images/faces/face3.jpg" alt="image" className="profile-pic" />
+											<img src={face3} alt="image" className="profile-pic" />
 										</div>
 										<div className="preview-item-content flex-grow">
 											<h6 className="preview-subject ellipsis font-weight-normal"> Johnson
@@ -98,7 +130,7 @@ class App extends React.Component {
 								</div>
 							</li>
 							<li className="nav-item dropdown mr-0">
-								<a className="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+								<a className="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" data-toggle="dropdown">
 									<i className="typcn typcn-bell mx-0" />
 									<span className="count" />
 								</a>
@@ -176,10 +208,14 @@ class App extends React.Component {
 						<i className="settings-close typcn typcn-times" />
 						<ul className="nav nav-tabs" id="setting-panel" role="tablist">
 							<li className="nav-item">
-								<a className="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+								<a className="nav-link active" id="todo-tab"
+								   data-toggle="tab" href="#todo-section" onClick={(e)=>this.handleClick(e)}
+								   role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+								<a className="nav-link" id="chats-tab" data-toggle="tab"
+								   href="#chats-section" onClick={(e)=>this.handleClick(e)}
+								   role="tab" aria-controls="chats-section">CHATS</a>
 							</li>
 						</ul>
 						<div className="tab-content" id="setting-content">
@@ -266,7 +302,7 @@ class App extends React.Component {
 								</div>
 								<ul className="chat-list">
 									<li className="list active">
-										<div className="profile"><img src="../../../../images/faces/face1.jpg" alt="image" /><span className="online" /></div>
+										<div className="profile"><img src={face1} alt="image" /><span className="online" /></div>
 										<div className="info">
 											<p>Thomas Douglas</p>
 											<p>Available</p>
@@ -274,7 +310,7 @@ class App extends React.Component {
 										<small className="text-muted my-auto">19 min</small>
 									</li>
 									<li className="list">
-										<div className="profile"><img src="../../../../images/faces/face2.jpg" alt="image" /><span className="offline" /></div>
+										<div className="profile"><img src={face2} alt="image" /><span className="offline" /></div>
 										<div className="info">
 											<div className="wrapper d-flex">
 												<p>Catherine</p>
@@ -285,7 +321,9 @@ class App extends React.Component {
 										<small className="text-muted my-auto">23 min</small>
 									</li>
 									<li className="list">
-										<div className="profile"><img src="../../../../images/faces/face3.jpg" alt="image" /><span className="online" /></div>
+										<div className="profile">
+											<img src={face3} alt="image" />
+										<span className="online" /></div>
 										<div className="info">
 											<p>Daniel Russell</p>
 											<p>Available</p>
@@ -293,7 +331,9 @@ class App extends React.Component {
 										<small className="text-muted my-auto">14 min</small>
 									</li>
 									<li className="list">
-										<div className="profile"><img src="../../../../images/faces/face4.jpg" alt="image" /><span className="offline" /></div>
+										<div className="profile">
+											<img src={face4} alt="image" />
+											<span className="offline" /></div>
 										<div className="info">
 											<p>James Richardson</p>
 											<p>Away</p>
@@ -301,7 +341,9 @@ class App extends React.Component {
 										<small className="text-muted my-auto">2 min</small>
 									</li>
 									<li className="list">
-										<div className="profile"><img src="../../../../images/faces/face5.jpg" alt="image" /><span className="online" /></div>
+										<div className="profile">
+											<img src={face5} alt="image" />
+											<span className="online" /></div>
 										<div className="info">
 											<p>Madeline Kennedy</p>
 											<p>Available</p>
@@ -309,7 +351,10 @@ class App extends React.Component {
 										<small className="text-muted my-auto">5 min</small>
 									</li>
 									<li className="list">
-										<div className="profile"><img src="../../../../images/faces/face6.jpg" alt="image" /><span className="online" /></div>
+										<div className="profile">
+											<img src={face6} alt="image" />
+											<span className="online" />
+										</div>
 										<div className="info">
 											<p>Sarah Graves</p>
 											<p>Available</p>
@@ -326,250 +371,395 @@ class App extends React.Component {
 					<nav className="sidebar sidebar-offcanvas" id="sidebar">
 						<ul className="nav">
 							<li className="nav-item">
-								<a className="nav-link" href="../../index.html">
+								<a className="nav-link">
 									<i className="typcn typcn-device-desktop menu-icon" />
 									<span className="menu-title">Dashboard</span>
 									<div className="badge badge-danger">new</div>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/widgets/widgets.html">
+								<a className="nav-link">
 									<i className="typcn typcn-archive menu-icon" />
 									<span className="menu-title">Widgets</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#ui-basic" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="ui-basic"
+								>
 									<i className="typcn typcn-document-text menu-icon" />
 									<span className="menu-title">UI Elements</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="ui-basic">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/accordions.html">Accordions</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/badges.html">Badges</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/breadcrumbs.html">Breadcrumbs</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/modals.html">Modals</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/progress.html">Progress bar</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/pagination.html">Pagination</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/tabs.html">Tabs</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/tooltips.html">Tooltips</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Accordions</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Buttons</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Badges</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Breadcrumbs</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Dropdowns</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Modals</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Progress bar</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Pagination</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Tabs</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Typography</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Tooltips</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#ui-advanced" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="ui-advanced">
 									<i className="typcn typcn-cog-outline menu-icon" />
 									<span className="menu-title">Advanced UI</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="ui-advanced">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/dragula.html">Dragula</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/clipboard.html">Clipboard</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/context-menu.html">Context menu</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/slider.html">Sliders</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/carousel.html">Carousel</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/colcade.html">Colcade</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/ui-features/loaders.html">Loaders</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Dragula</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Clipboard</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Context menu</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Sliders</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Carousel</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Colcade</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Loaders</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#form-elements" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="form-elements">
 									<i className="typcn typcn-film menu-icon" />
 									<span className="menu-title">Form elements</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="form-elements">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/basic_elements.html">Basic Elements</a></li>
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/advanced_elements.html">Advanced Elements</a></li>
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/validation.html">Validation</a></li>
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/wizard.html">Wizard</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Basic Elements</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Advanced Elements</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Validation</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Wizard</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#editors" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="editors">
 									<i className="typcn typcn-point-of-interest-outline menu-icon" />
 									<span className="menu-title">Editors</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="editors">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/text_editor.html">Text editors</a></li>
-										<li className="nav-item"><a className="nav-link" href="../../pages/forms/code_editor.html">Code editors</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Text editors</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Code editors</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#charts" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="charts">
 									<i className="typcn typcn-chart-pie-outline menu-icon" />
 									<span className="menu-title">Charts</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="charts">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/chartjs.html">ChartJs</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/morris.html">Morris</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/flot-chart.html">Flot</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/google-charts.html">Google charts</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/sparkline.html">Sparkline js</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/c3.html">C3 charts</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/chartist.html">Chartists</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/charts/justGage.html">JustGage</a></li>
+										<li className="nav-item">
+											<a className="nav-link">ChartJs</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Morris</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Flot</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Google charts</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Sparkline js</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">C3 charts</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Chartists</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">JustGage</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#tables" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="tables">
 									<i className="typcn typcn-th-small-outline menu-icon" />
 									<span className="menu-title">Tables</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="tables">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/tables/basic-table.html">Basic table</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/tables/data-table.html">Data table</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/tables/js-grid.html">Js-grid</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/tables/sortable-table.html">Sortable table</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Basic table</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Data table</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Js-grid</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Sortable table</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/ui-features/popups.html">
+								<a className="nav-link">
 									<i className="typcn typcn-radar-outline menu-icon" />
 									<span className="menu-title">Popups</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/ui-features/notifications.html">
+								<a className="nav-link">
 									<i className="typcn typcn-bell menu-icon" />
 									<span className="menu-title">Notifications</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#icons" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="icons">
 									<i className="typcn typcn-compass menu-icon" />
 									<span className="menu-title">Icons</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="icons">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/icons/flag-icons.html">Flag icons</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/icons/mdi.html">Mdi icons</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/icons/font-awesome.html">Font Awesome</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/icons/simple-line-icon.html">Simple line icons</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/icons/themify.html">Themify icons</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Flag icons</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Mdi icons</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Font Awesome</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Simple line icons</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Themify icons</a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#maps" aria-expanded="false" aria-controls="maps">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#maps" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="maps">
 									<i className="typcn typcn-map menu-icon" />
 									<span className="menu-title">Maps</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="maps">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/maps/mapael.html">Mapael</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/maps/vector-map.html">Vector Map</a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/maps/google-maps.html">Google Map</a></li>
+										<li className="nav-item">
+											<a className="nav-link">Mapael</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Vector Map</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link">Google Map</a></li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#auth" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="auth">
 									<i className="typcn typcn-user-add-outline menu-icon" />
 									<span className="menu-title">User Pages</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="auth">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/login-2.html"> Login 2 </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/register-2.html"> Register 2 </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/lock-screen.html"> Lockscreen </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Login </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Login 2 </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Register </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Register 2 </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Lockscreen </a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#error" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="error">
 									<i className="typcn typcn-globe-outline menu-icon" />
 									<span className="menu-title">Error pages</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="error">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> 404 </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> 500 </a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#general-pages" onClick={(e)=>this.handleClick(e)}
+								   aria-expanded="false" aria-controls="general-pages">
 									<i className="typcn typcn-document-delete menu-icon" />
 									<span className="menu-title">General Pages</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="general-pages">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/profile.html"> Profile </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/faq.html"> FAQ </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/faq-2.html"> FAQ 2 </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/news-grid.html"> News grid </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/timeline.html"> Timeline </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/search-results.html"> Search Results </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/portfolio.html"> Portfolio </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Blank Page </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Profile </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> FAQ </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> FAQ 2 </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> News grid </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Timeline </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Search Results </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Portfolio </a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="collapse" href="#e-commerce" aria-expanded="false" aria-controls="e-commerce">
+								<a className="nav-link" data-toggle="collapse"
+								   href="#e-commerce" aria-expanded="false" aria-controls="e-commerce"
+								   onClick={(e)=>this.handleClick(e)}
+								>
 									<i className="typcn typcn-briefcase menu-icon" />
 									<span className="menu-title">E-commerce</span>
 									<i className="menu-arrow" />
 								</a>
 								<div className="collapse" id="e-commerce">
 									<ul className="nav flex-column sub-menu">
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/invoice.html"> Invoice </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/pricing-table.html"> Pricing Table </a></li>
-										<li className="nav-item"> <a className="nav-link" href="../../pages/samples/orders.html"> Orders </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Invoice </a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link"> Pricing Table </a></li>
+										<li className="nav-item">
+											<a className="nav-link"> Orders </a>
+										</li>
 									</ul>
 								</div>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/apps/email.html">
+								<a className="nav-link">
 									<i className="typcn typcn-mail menu-icon" />
 									<span className="menu-title">E-mail</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/apps/calendar.html">
+								<a className="nav-link">
 									<i className="typcn typcn-calendar-outline menu-icon" />
 									<span className="menu-title">Calendar</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/apps/todo.html">
+								<a className="nav-link">
 									<i className="typcn typcn-device-phone menu-icon" />
 									<span className="menu-title">Todo List</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/apps/gallery.html">
+								<a className="nav-link">
 									<i className="typcn typcn-image menu-icon" />
 									<span className="menu-title">Gallery</span>
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link" href="../../pages/documentation/documentation.html">
+								<a className="nav-link">
 									<i className="typcn typcn-mortar-board menu-icon" />
 									<span className="menu-title">Documentation</span>
 								</a>
@@ -584,7 +774,7 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Line chart</h4>
-											<canvas id="lineChart" />
+											<canvas id="lineChart"></canvas>
 										</div>
 									</div>
 								</div>
@@ -592,7 +782,7 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Bar chart</h4>
-											<canvas id="barChart" />
+											<canvas id="barChart"></canvas>
 										</div>
 									</div>
 								</div>
@@ -602,7 +792,7 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Area chart</h4>
-											<canvas id="areaChart" />
+											<canvas id="areaChart"></canvas>
 										</div>
 									</div>
 								</div>
@@ -610,7 +800,7 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Doughnut chart</h4>
-											<canvas id="doughnutChart" />
+											<canvas id="doughnutChart"></canvas>
 										</div>
 									</div>
 								</div>
@@ -620,7 +810,7 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Pie chart</h4>
-											<canvas id="pieChart" />
+											<canvas id="pieChart"></canvas>
 										</div>
 									</div>
 								</div>
@@ -628,14 +818,12 @@ class App extends React.Component {
 									<div className="card">
 										<div className="card-body">
 											<h4 className="card-title">Scatter chart</h4>
-											<canvas id="scatterChart" />
+											<canvas id="scatterChart"></canvas>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						{/* content-wrapper ends */}
-						{/* partial:../../partials/_footer.html */}
 						<footer className="footer">
 							<div className="card">
 								<div className="card-body">
@@ -646,7 +834,6 @@ class App extends React.Component {
 								</div>
 							</div>
 						</footer>
-						{/* partial */}
 					</div>
 					{/* main-panel ends */}
 				</div>
