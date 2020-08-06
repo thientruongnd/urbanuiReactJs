@@ -61,10 +61,10 @@ class SettingWrapper extends React.Component <{}, isState> {
 	                        <a
 	                            className="nav-link active"
 	                            id="todo-tab"
-							   data-toggle="tab"
+							    data-toggle="tab"
 	                            href="#todo-section"
 	                            onClick={(e) => this.handleClick(e)}
-							   role="tab"
+							    role="tab"
 	                            aria-controls="todo-section"
 	                            aria-expanded="true"
 	                        >TO DO LIST
@@ -75,9 +75,9 @@ class SettingWrapper extends React.Component <{}, isState> {
 	                            className="nav-link"
 	                            id="chats-tab"
 	                            data-toggle="tab"
-							   href="#chats-section"
+							    href="#chats-section"
 	                            onClick={(e) => this.handleClick(e)}
-							   role="tab"
+							    role="tab"
 	                            aria-controls="chats-section"
 	                        >CHATS
 	                        </a>
@@ -177,7 +177,9 @@ class SettingWrapper extends React.Component <{}, isState> {
 	                                <small className="text-muted my-auto">19 min</small>
 	                            </li>
 	                            <li className="list">
-	                                <div className="profile"><img src={face2} alt="image" /><span className="offline" /></div>
+	                                <div className="profile">
+		                                <img src={face2} alt="image" /><span className="offline" />
+	                                </div>
 	                                <div className="info">
 	                                    <div className="wrapper d-flex">
 	                                        <p>Catherine</p>

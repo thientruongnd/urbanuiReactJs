@@ -61,6 +61,11 @@ module.exports = {
         'react/jsx-props-no-spreading': 0,
         'import/no-cycle': 0,
         'react/destructuring-assignment': 0,
+        'jsx-a11y/anchor-is-valid': ['error', {
+            components: ['Link'],
+            specialLink: ['to'],
+        }],
+        'no-script-url': 0,
 
     },
 };
