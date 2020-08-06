@@ -1,10 +1,9 @@
 (function ($) {
-    'use strict';
-    //Open submenu on hover in compact sidebar mode and horizontal menu mode
+    // Open submenu on hover in compact sidebar mode and horizontal menu mode
     $(document).on('mouseenter mouseleave', '.sidebar .nav-item', function (ev) {
-        let body = $('body');
-        let sidebarIconOnly = body.hasClass("sidebar-icon-only");
-        let sidebarFixed = body.hasClass("sidebar-fixed");
+        const body = $('body');
+        const sidebarIconOnly = body.hasClass('sidebar-icon-only');
+        const sidebarFixed = body.hasClass('sidebar-fixed');
         if (!('ontouchstart' in document.documentElement)) {
             if (sidebarIconOnly) {
                 if (sidebarFixed) {
@@ -12,14 +11,14 @@
                         body.removeClass('sidebar-icon-only');
                     }
                 } else {
-                    let $menuItem = $(this);
+                    const $menuItem = $(this);
                     if (ev.type === 'mouseenter') {
-                        $menuItem.addClass('hover-open')
+                        $menuItem.addClass('hover-open');
                     } else {
-                        $menuItem.removeClass('hover-open')
+                        $menuItem.removeClass('hover-open');
                     }
                 }
             }
         }
     });
-})(jQuery);
+}(jQuery));
