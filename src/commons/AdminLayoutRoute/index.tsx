@@ -30,7 +30,6 @@ interface isProps{
 	exact: boolean,
 	component: any,
 }
-
 class AdminLayoutRoute extends React.Component <isProps, isState> {
     constructor(props) {
 	    super(props);
