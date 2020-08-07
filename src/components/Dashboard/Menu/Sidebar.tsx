@@ -26,7 +26,7 @@ class Sidebar extends React.Component <{}, isState> {
 	        <nav className="sidebar sidebar-offcanvas" id="sidebar">
 	            <ul className="nav">
 		            <li className="nav-item">
-			            <a className="nav-link" href="../../index.html">
+			            <a className="nav-link" href="../../../index.html">
 				            <i className="typcn typcn-device-desktop menu-icon" />
 				            <span className="menu-title">Dashboard</span>
 				            <div className="badge badge-danger">new</div>

@@ -4,17 +4,17 @@
  */
 import * as React from 'react';
 // @ts-ignore
-import * as face1 from '../../../public/images/faces/face1.jpg';
+import * as face1 from '../../../../public/images/faces/face1.jpg';
 // @ts-ignore
-import * as face2 from '../../../public/images/faces/face2.jpg';
+import * as face2 from '../../../../public/images/faces/face2.jpg';
 // @ts-ignore
-import * as face3 from '../../../public/images/faces/face3.jpg';
+import * as face3 from '../../../../public/images/faces/face3.jpg';
 // @ts-ignore
-import * as face4 from '../../../public/images/faces/face4.jpg';
+import * as face4 from '../../../../public/images/faces/face4.jpg';
 // @ts-ignore
-import * as face5 from '../../../public/images/faces/face5.jpg';
+import * as face5 from '../../../../public/images/faces/face5.jpg';
 // @ts-ignore
-import * as face6 from '../../../public/images/faces/face6.jpg';
+import * as face6 from '../../../../public/images/faces/face6.jpg';
 
 interface isState{
 	isOpen: boolean

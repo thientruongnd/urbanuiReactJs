@@ -9,7 +9,6 @@
         // Add active class to nav-link based on url dynamically
         // Active class can be hard coded directly in html file also as required
         const current = location.pathname.split('/').slice(-1)[0].replace(/^\/|\/$/g, '');
-        console.log(`current: ${current}`);
         function addActiveClass(element) {
             if (current === '') {
                 // for root url
