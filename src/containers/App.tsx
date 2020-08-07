@@ -28,7 +28,7 @@ class App extends React.Component <{}, isState> {
 	    const xhtml = ADMIN_ROUTES.map((route) => (
 			    <AdminLayoutRoute
 				    key={route.id}
-				    pathRoute={route.pathRoute}
+				    path={route.pathRoute}
 				    component={route.component}
 				    exact={route.exact}
 				    name={route.name}

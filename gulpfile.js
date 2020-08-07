@@ -1,6 +1,11 @@
+/**
+Mr : Dang Xuan Truong
+Email: truongdx@runsystem.net
+*/
 const gulp = require('gulp');
 const pm2 = require('pm2');
 const debug = require('gulp-debug');
+
 gulp.task('webpackReactJs', () => {
     gulp.src('*')
         .pipe(debug());

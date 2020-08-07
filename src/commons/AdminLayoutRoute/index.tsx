@@ -25,7 +25,7 @@ interface isState{
 	isState: boolean
 }
 interface isProps{
-	pathRoute: string,
+	path: string,
 	name: string,
 	exact: boolean,
 	component: any,
@@ -44,15 +44,12 @@ class AdminLayoutRoute extends React.Component <isProps, isState> {
         const { component: YourComponent, ...remainProps } = this.props;
         return (
             <Route
-	            path={remainProps.pathRoute}
                 {...remainProps}
-                render={(routeProps) =>{
-                	return  (
+                render={(routeProps) => (
 		                <Dashboard {...remainProps}>
 			                <YourComponent {...routeProps} />
 		                </Dashboard>
-	                )
-                }}
+	                )}
             />
         );
     }

@@ -5,8 +5,6 @@ Email: truongdx@runsystem.net
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const path = require('path');
-
-const srcPath = path.join(__dirname, './src', 'public');
 const webpack = require('webpack');
 /* const VENDOR_LIBS = [
     'axios',
