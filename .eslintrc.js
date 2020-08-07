@@ -66,6 +66,8 @@ module.exports = {
             specialLink: ['to'],
         }],
         'no-script-url': 0,
+        'no-undef': 0,
+        'jsx-no-target-blank': 0
 
     },
 };

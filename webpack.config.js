@@ -4,10 +4,11 @@ Email: truongdx@runsystem.net
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const path = require('path')
-const srcPath = path.join(__dirname, './src', 'public')
+const path = require('path');
+
+const srcPath = path.join(__dirname, './src', 'public');
 const webpack = require('webpack');
-/*const VENDOR_LIBS = [
+/* const VENDOR_LIBS = [
     'axios',
     'jquery',
     'react',
@@ -16,7 +17,7 @@ const webpack = require('webpack');
     'react-router-dom',
     'redux',
     'redux-devtools-extension',
-];*/
+]; */
 const devServer = {
     port: 4600,
     open: true,
@@ -32,7 +33,7 @@ const devServer = {
 module.exports = {
     entry: {
         bundle: './src/index.tsx',
-       // vendor: VENDOR_LIBS,
+        // vendor: VENDOR_LIBS,
 
     },
     output: {
@@ -44,24 +45,28 @@ module.exports = {
             {
                 test: /\.(ts|tsx)?$/,
                 use: {
-                    loader: 'awesome-typescript-loader'
+                    loader: 'awesome-typescript-loader',
                 },
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 use: [
                     'style-loader',
-                    'css-loader'
+                    'css-loader',
                 ],
                 test: /\.css$/,
             },
             {
-                loader: 'file-loader',
-                test: /\.svg$|\.woff$|\.woff2$|\.eot$|\.ttf$|\.wav$|\.mp3$|\.ico$/,
-                exclude: /(node_modules)/,
-                options: {
-                    outputPath: 'assets/fonts',
-                },
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/fonts/',
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(png|jp(e*)g|gif)$/,
@@ -82,22 +87,22 @@ module.exports = {
                     // Compiles Sass to CSS
                     'sass-loader',
                 ],
-            }
-        ]
+            },
+        ],
     },
     plugins: [
         new webpack.ProvidePlugin({
-            '$': 'jquery',
-            'jQuery': 'jquery',
+            $: 'jquery',
+            jQuery: 'jquery',
             'window.$': 'jquery',
             'window.$jquery': 'jquery',
-            'Popper': 'popper.js',
-             PerfectScrollbar: ['perfect-scrollbar', 'default']
+            Popper: 'popper.js',
+            PerfectScrollbar: ['perfect-scrollbar', 'default'],
         }),
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
         }),
-        new ManifestPlugin()
+        new ManifestPlugin(),
     ],
 
     optimization: {
@@ -112,12 +117,12 @@ module.exports = {
                     reuseExistingChunk: true,
                     enforce: true,
                 },
-            }
+            },
         },
     },
-    devtool: "source-map",
+    devtool: 'source-map',
     resolve: {
-        extensions: [".js", ".ts", ".tsx"]
+        extensions: ['.js', '.ts', '.tsx'],
     },
-    devServer
-}
+    devServer,
+};

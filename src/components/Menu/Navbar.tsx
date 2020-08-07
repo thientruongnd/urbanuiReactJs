@@ -4,15 +4,15 @@
  */
 import * as React from 'react';
 // @ts-ignore
-import Logo from '../../public/assets/logo/logo-salefie.png';
+import Logo from '../../assets/logo/logo-salefie.png';
 // @ts-ignore
-import face5 from '../../public/images/faces/face5.jpg';
+import face5 from '../../../public/images/faces/face5.jpg';
 // @ts-ignore
-import face4 from '../../public/images/faces/face4.jpg';
+import face4 from '../../../public/images/faces/face4.jpg';
 // @ts-ignore
-import face2 from '../../public/images/faces/face2.jpg';
+import face2 from '../../../public/images/faces/face2.jpg';
 // @ts-ignore
-import face3 from '../../public/images/faces/face3.jpg';
+import face3 from '../../../public/images/faces/face3.jpg';
 
 interface isState{
 	isOpen: boolean
