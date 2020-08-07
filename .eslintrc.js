@@ -67,7 +67,8 @@ module.exports = {
         }],
         'no-script-url': 0,
         'no-undef': 0,
-        'jsx-no-target-blank': 0
+        'jsx-no-target-blank': 0,
+        'react/jsx-closing-tag-location': 0,
 
     },
 };
