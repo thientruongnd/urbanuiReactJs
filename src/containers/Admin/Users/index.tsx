@@ -5,6 +5,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import UsersComponents from '../../../components/Users';
 
 interface isState{
 	isState: boolean
@@ -20,7 +21,7 @@ class UsersContainer extends React.Component <{}, isState> {
 
     render() {
         return (
-            <div><h1>This is user</h1></div>
+            <UsersComponents />
         );
     }
 }

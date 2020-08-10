@@ -27,6 +27,7 @@ class Dashboard extends React.Component <isProps, isState> {
 	    const {
 		    children,
 	    } = this.props;
+	    console.log(children);
         return (
             <div>
                 <Navbar />

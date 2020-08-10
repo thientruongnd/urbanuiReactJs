@@ -9,16 +9,16 @@ import UsersContainer from '../containers/Admin/Users';
 export const ADMIN_ROUTES = [
     {
         id: 1,
-	    pathRoute: '/admin/',
+	    pathRoute: '/admin',
         name: 'Trang quản trị',
         exact: true,
-        component: UsersContainer,
+        component: HomeContainer,
     },
     {
 	    id: 2,
 	    pathRoute: '/admin/users',
         name: 'Quản lý nhân viên',
-        exact: false,
-        component: HomeContainer,
+        exact: true,
+        component: UsersContainer,
     },
 ];

@@ -4,6 +4,7 @@ Email: truongdx@runsystem.net
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 /* const VENDOR_LIBS = [
@@ -25,7 +26,10 @@ const devServer = {
     stats: true,
     inline: true,
     compress: true,
-    contentBase: '/',
+    contentBase: path.join(__dirname, '/'),
+    watchOptions: {
+        poll: true,
+    },
 };
 
 module.exports = {
@@ -37,6 +41,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].[chunkhash].js',
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -101,6 +106,10 @@ module.exports = {
             template: 'src/index.html',
         }),
         new ManifestPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
+            chunkFilename: '[name].css',
+        }),
     ],
 
     optimization: {
@@ -120,7 +129,7 @@ module.exports = {
     },
     devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.ts', '.tsx'],
+        extensions: ['.js', '.ts', '.tsx', '.scss'],
     },
     devServer,
 };

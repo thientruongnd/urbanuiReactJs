@@ -69,6 +69,7 @@ module.exports = {
         'no-undef': 0,
         'jsx-no-target-blank': 0,
         'react/jsx-closing-tag-location': 0,
+        'jsx-a11y/label-has-associated-control': 0
 
     },
 };

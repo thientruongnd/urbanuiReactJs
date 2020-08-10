@@ -4,7 +4,7 @@
  */
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/scss/bootstrap.scss';
 import '@mdi/font/css/materialdesignicons.min.css';
 import 'typicons.font/src/font/typicons.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -39,8 +39,8 @@ class AdminLayoutRoute extends React.Component <isProps, isState> {
     }
 
     render() {
-    	console.log(this.props);
         const { component: YourComponent, ...remainProps } = this.props;
+        console.log(remainProps);
         return (
             <Route
                 {...remainProps}
