@@ -40,7 +40,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].[chunkhash].js',
+        filename: 'bundle.js',
         publicPath: '/',
     },
     module: {
@@ -116,13 +116,10 @@ module.exports = {
         splitChunks: {
             chunks: 'all',
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.s?css$/,
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
                     chunks: 'all',
-                    minChunks: 1,
-                    reuseExistingChunk: true,
-                    enforce: true,
                 },
             },
         },

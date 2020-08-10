@@ -8,7 +8,8 @@ import { Provider } from 'react-redux';
 import configureStore from '../redux/configureStore';
 
 import AdminLayoutRoute from '../commons/AdminLayoutRoute';
-import { ADMIN_ROUTES } from '../constants';
+import DefaultLayoutRoute from '../commons/DefaultLayoutRoute';
+import { ADMIN_ROUTES, ROUTES } from '../constants';
 
 const store = configureStore();
 
@@ -37,12 +38,26 @@ class App extends React.Component <{}, isState> {
 	    return xhtml;
 	}
 
+	renderDefaultRoutes = (): any => {
+	    const xhtml = ROUTES.map((route) => (
+	        <DefaultLayoutRoute
+	            key={route.id}
+	            path={route.pathRoute}
+	            component={route.component}
+	            exact={route.exact}
+	            name={route.name}
+	        />
+	    ));
+	    return xhtml;
+	}
+
 	render() {
 	    return (
 		    <Provider store={store}>
 			    <BrowserRouter>
 				    <Switch>
 					    {this.renderAdminRoutes()}
+					    {this.renderDefaultRoutes()}
 				    </Switch>
 	            </BrowserRouter>
 		    </Provider>
