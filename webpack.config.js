@@ -26,7 +26,7 @@ const devServer = {
     stats: true,
     inline: true,
     compress: true,
-    contentBase: path.join(__dirname, '/'),
+    contentBase: '/',
     watchOptions: {
         poll: true,
     },
@@ -40,7 +40,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].js',
         publicPath: '/',
     },
     module: {

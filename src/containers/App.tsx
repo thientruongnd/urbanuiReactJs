@@ -56,8 +56,8 @@ class App extends React.Component <{}, isState> {
 		    <Provider store={store}>
 			    <BrowserRouter>
 				    <Switch>
-					    {this.renderAdminRoutes()}
 					    {this.renderDefaultRoutes()}
+					    {this.renderAdminRoutes()}
 				    </Switch>
 	            </BrowserRouter>
 		    </Provider>
