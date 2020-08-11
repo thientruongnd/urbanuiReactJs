@@ -3,6 +3,8 @@
  Email: truongdx@runsystem.net
  */
 import * as React from 'react';
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 // @ts-ignore
 import Logo from '../../../assets/logo/logo-salefie.png';
 // @ts-ignore
@@ -17,9 +19,11 @@ import face3 from '../../../../public/images/faces/face3.jpg';
 interface isState{
 	isOpen: boolean
 }
-
-class Nadirs extends React.Component <{}, isState> {
-    constructor(props: {}) {
+interface isProps{
+	history: any
+}
+class NavbarComponent extends React.Component <isProps, isState> {
+    constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
@@ -180,5 +184,6 @@ class Nadirs extends React.Component <{}, isState> {
         );
     }
 }
-
-export default Nadirs;
+export default compose(
+	withRouter,
+)(NavbarComponent);
