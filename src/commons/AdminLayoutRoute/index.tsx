@@ -15,7 +15,7 @@ import 'perfect-scrollbar/dist/perfect-scrollbar.min';
 import 'chart.js/dist/Chart.min';
 import '../../../public/js/off-canvas';
 import '../../../public/js/hoverable-collapse';
-// import '../../../public/js/template';
+import '../../../public/js/template';
 
 import Dashboard from '../../components/Dashboard';
 

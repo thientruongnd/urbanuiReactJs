@@ -21,11 +21,16 @@ class SidebarComponent extends React.Component <isProps, isState> {
         };
     }
 
-    render() {
+	onActive = (match: any, location: any): void => {
+    	console.log('match', this.props);
+	    console.log('location', location);
+	}
+
+	render() {
 	    return (
 	        <nav className="sidebar sidebar-offcanvas" id="sidebar">
 	            <ul className="nav">
-		            <li className="nav-item active">
+		            <li className="nav-item">
 			            <NavLink
 				            className="nav-link"
 				            to="/admin"
@@ -78,16 +83,40 @@ class SidebarComponent extends React.Component <isProps, isState> {
 						            <NavLink className="nav-link" to="/admin/icons/flag">Flag icons</NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/icons/mdi">Mdi icons</NavLink>
+						            <NavLink
+							            exact
+							            activeClassName="active"
+							            className="nav-link"
+							            to="/admin/icons/mdi"
+							            isActive={(match, location) => this.onActive(match, location)}
+						            >Mdi icons</NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/icons/font-awesome">Font Awesome</NavLink>
+						            <NavLink
+							            exact
+							            activeClassName="active"
+							            className="nav-link"
+							            to="/admin/icons/font-awesome"
+						            >Font Awesome
+						            </NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/icons/simple-line">Simple line icons</NavLink>
+						            <NavLink
+	                                    exact
+						                      activeClassName="active"
+						                      className="nav-link"
+						                      to="/admin/icons/simple-line"
+						            >Simple line icons
+						            </NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/icons/themify">Themify icons</NavLink>
+						            <NavLink
+	                                    exact
+						                      activeClassName="active"
+						                      className="nav-link"
+						                      to="/admin/icons/themify"
+						            >Themify icons
+						            </NavLink>
 					            </li>
 				            </ul>
 			            </div>
@@ -95,7 +124,7 @@ class SidebarComponent extends React.Component <isProps, isState> {
 	            </ul>
 	        </nav>
 	    );
-    }
+	}
 }
 
 export default compose(
