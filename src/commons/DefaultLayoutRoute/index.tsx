@@ -39,7 +39,6 @@ class DefaultLayoutRoute extends React.Component <isProps, isState> {
 
     render() {
 	    const { component: YourComponent, ...remainProps } = this.props;
-	    console.log(remainProps);
         return (
 	        <Route
 		        {...remainProps}

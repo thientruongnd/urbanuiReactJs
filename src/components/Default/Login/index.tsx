@@ -3,35 +3,45 @@
  Email: truongdx@runsystem.net
  */
 import * as React from 'react';
+import { compose } from 'redux';
+import { withRouter } from 'react-router';
 
 interface isState{
 	isState: boolean
 }
+interface isProps{
+	history: any
+}
 
-class LoginComponent extends React.Component <{}, isState> {
-    constructor(props: {}) {
+class LoginComponent extends React.Component <isProps, isState> {
+    constructor(props) {
         super(props);
         this.state = {
             isState: false,
         };
     }
 
-    render() {
-        return (
+	handleLogin = (e) => {
+	    const { history } = this.props;
+	    history.push('/admin');
+	}
+
+	render() {
+	    return (
 	        <form className="pt-3">
 		        <div className="form-group">
 			        <label htmlFor="exampleInputEmail">Username</label>
 			        <div className="input-group">
 				        <div className="input-group-prepend bg-transparent">
-                            <span className="input-group-text bg-transparent border-right-0">
-                                <i className="typcn typcn-user-outline text-primary" />
-                            </span>
+	                        <span className="input-group-text bg-transparent border-right-0">
+	                            <i className="typcn typcn-user-outline text-primary" />
+	                        </span>
 				        </div>
 				        <input
-                            type="text"
-                            className="form-control form-control-lg border-left-0"
+	                        type="text"
+	                        className="form-control form-control-lg border-left-0"
 				               id="exampleInputEmail"
-                            placeholder="Username"
+	                        placeholder="Username"
 				        />
 			        </div>
 		        </div>
@@ -39,15 +49,15 @@ class LoginComponent extends React.Component <{}, isState> {
 			        <label htmlFor="exampleInputPassword">Password</label>
 			        <div className="input-group">
 				        <div className="input-group-prepend bg-transparent">
-                            <span className="input-group-text bg-transparent border-right-0">
-                                <i className="typcn typcn-lock-closed-outline text-primary" />
-                            </span>
+	                        <span className="input-group-text bg-transparent border-right-0">
+	                            <i className="typcn typcn-lock-closed-outline text-primary" />
+	                        </span>
 				        </div>
 				        <input
-                            type="password"
+	                        type="password"
 				               className="form-control form-control-lg border-left-0"
 				               id="exampleInputPassword"
-                            placeholder="Password"
+	                        placeholder="Password"
 				        />
 			        </div>
 		        </div>
@@ -61,7 +71,11 @@ class LoginComponent extends React.Component <{}, isState> {
 			        <a href="#" className="auth-link text-black">Forgot password?</a>
 		        </div>
 		        <div className="my-3">
-			        <a className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOGIN</a>
+			        <button
+				        onClick={(e) => this.handleLogin(e)}
+	                    type="button"
+			                className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+			        >LOGIN</button>
 		        </div>
 		        <div className="mb-2 d-flex">
 			        <button type="button" className="btn btn-facebook auth-form-btn flex-grow mr-1">
@@ -76,8 +90,9 @@ class LoginComponent extends React.Component <{}, isState> {
 			        <a href="register-2.html" className="text-primary">Create</a>
 		        </div>
 	        </form>
-        );
-    }
+	    );
+	}
 }
-
-export default LoginComponent;
+export default compose(
+    withRouter,
+)(LoginComponent);
