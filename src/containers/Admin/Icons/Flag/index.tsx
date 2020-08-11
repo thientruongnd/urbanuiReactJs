@@ -5,7 +5,7 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import FlagIconsComponents from '../../../../components/Icons/FlagIcons';
+import FlagIconsComponents from '../../../../components/Icons/Flag';
 
 interface isState{
 	isState: boolean

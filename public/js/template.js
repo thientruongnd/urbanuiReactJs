@@ -54,8 +54,6 @@
         });
 
         // Change sidebar and content-wrapper height
-        applyStyles();
-
         function applyStyles() {
             // Applying perfect scrollbar
             if (!body.hasClass('rtl')) {
@@ -72,7 +70,7 @@
                 }
             }
         }
-
+        applyStyles();
         $('[data-toggle="minimize"]').on('click', () => {
             if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
                 body.toggleClass('sidebar-hidden');

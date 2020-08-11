@@ -23,7 +23,7 @@ class Footer extends React.Component <{}, isState> {
 			        <div className="card-body">
 				        <div className="d-sm-flex justify-content-center justify-content-sm-between">
 					        <span className="text-muted text-center text-sm-left d-block d-sm-inline-block">
-						        Copyright © 2018 All rights reserved.
+						        Copyright © 2020 All rights reserved.
 					        </span>
 				        </div>
 			        </div>

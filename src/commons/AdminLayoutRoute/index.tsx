@@ -15,9 +15,7 @@ import 'perfect-scrollbar/dist/perfect-scrollbar.min';
 import 'chart.js/dist/Chart.min';
 import '../../../public/js/off-canvas';
 import '../../../public/js/hoverable-collapse';
-import '../../../public/js/template';
-import '../../../public/js/settings';
-import '../../../public/js/todolist';
+// import '../../../public/js/template';
 
 import Dashboard from '../../components/Dashboard';
 
@@ -40,7 +38,6 @@ class AdminLayoutRoute extends React.Component <isProps, isState> {
 
     render() {
         const { component: YourComponent, ...remainProps } = this.props;
-        console.log(remainProps);
         return (
             <Route
                 {...remainProps}

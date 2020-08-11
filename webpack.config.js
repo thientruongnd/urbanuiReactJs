@@ -65,7 +65,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
+                            name: '[hash]-[name].[ext]',
                             outputPath: 'assets/fonts/',
                         },
                     },
@@ -75,7 +75,7 @@ module.exports = {
                 test: /\.(png|jp(e*)g|gif)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'images/[hash]-[name].[ext]',
+                    name: '[hash]-[name].[ext]',
                     outputPath: 'assets/images',
                 },
             },

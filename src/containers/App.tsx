@@ -9,6 +9,7 @@ import configureStore from '../redux/configureStore';
 
 import AdminLayoutRoute from '../commons/AdminLayoutRoute';
 import DefaultLayoutRoute from '../commons/DefaultLayoutRoute';
+import NotFoundRoute from '../commons/NotFoundRoute';
 import { ADMIN_ROUTES, ROUTES } from '../constants';
 
 const store = configureStore();
@@ -51,6 +52,8 @@ class App extends React.Component <{}, isState> {
 	    return xhtml;
 	}
 
+	renderNotFoundRoute = (): any => <NotFoundRoute />
+
 	render() {
 	    return (
 		    <Provider store={store}>
@@ -58,6 +61,7 @@ class App extends React.Component <{}, isState> {
 				    <Switch>
 					    {this.renderDefaultRoutes()}
 					    {this.renderAdminRoutes()}
+					    {this.renderNotFoundRoute()}
 				    </Switch>
 	            </BrowserRouter>
 		    </Provider>

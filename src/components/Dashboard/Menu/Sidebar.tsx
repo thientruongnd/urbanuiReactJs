@@ -25,8 +25,11 @@ class SidebarComponent extends React.Component <isProps, isState> {
 	    return (
 	        <nav className="sidebar sidebar-offcanvas" id="sidebar">
 	            <ul className="nav">
-		            <li className="nav-item">
-			            <NavLink className="nav-link" to="/admin/">
+		            <li className="nav-item active">
+			            <NavLink
+				            className="nav-link"
+				            to="/admin"
+			            >
 				            <i className="typcn typcn-device-desktop menu-icon" />
 				            <span className="menu-title">Dashboard</span>
 				            <div className="badge badge-danger">new</div>
@@ -47,16 +50,13 @@ class SidebarComponent extends React.Component <isProps, isState> {
 			            <div className="collapse" id="auth">
 				            <ul className="nav flex-column sub-menu">
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/users">Danh sách nhân viên</NavLink>
+						            <NavLink
+							            className="nav-link"
+							            to="/admin/users"
+						            >
+							            Danh sách nhân viên
+						            </NavLink>
 					            </li>
-					            <li className="nav-item">
-						            <a className="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-					            <li className="nav-item">
-						            <a className="nav-link" href="pages/samples/register.html"> Register </a></li>
-					            <li className="nav-item">
-						            <a className="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-					            <li className="nav-item">
-						            <a className="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
 				            </ul>
 			            </div>
 		            </li>
@@ -84,10 +84,10 @@ class SidebarComponent extends React.Component <isProps, isState> {
 						            <NavLink className="nav-link" to="/admin/icons/font-awesome">Font Awesome</NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <a className="nav-link" href="pages/icons/simple-line-icon.html">Simple line icons</a>
+						            <NavLink className="nav-link" to="/admin/icons/simple-line">Simple line icons</NavLink>
 					            </li>
 					            <li className="nav-item">
-						            <a className="nav-link" href="pages/icons/themify.html">Themify icons </a>
+						            <NavLink className="nav-link" to="/admin/icons/themify">Themify icons</NavLink>
 					            </li>
 				            </ul>
 			            </div>

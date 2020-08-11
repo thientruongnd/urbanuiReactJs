@@ -484,7 +484,6 @@ class Home extends React.Component <{}, isState> {
 				        </div>
 			        </div>
 		        </div>
-
 	        </div>
         );
     }

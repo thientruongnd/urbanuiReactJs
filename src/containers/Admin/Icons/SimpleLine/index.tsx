@@ -5,13 +5,13 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import MdiIconsComponents from '../../../../components/Icons/MdiIcons';
+import SimpleLineIconsComponents from '../../../../components/Icons/SimpleLine';
 
 interface isState{
 	isState: boolean
 }
 
-class MdiIconsContainer extends React.Component <{}, isState> {
+class SimpleLineIconsContainer extends React.Component <{}, isState> {
     constructor(props: {}) {
         super(props);
         this.state = {
@@ -21,7 +21,7 @@ class MdiIconsContainer extends React.Component <{}, isState> {
 
     render() {
         return (
-            <MdiIconsComponents />
+            <SimpleLineIconsComponents />
         );
     }
 }
@@ -29,4 +29,4 @@ class MdiIconsContainer extends React.Component <{}, isState> {
 const withConnect = connect(null, null);
 export default compose(
     withConnect,
-)(MdiIconsContainer);
+)(SimpleLineIconsContainer);
