@@ -8,7 +8,8 @@ import { withRouter } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 interface isState{
-	isOpen: boolean
+	isOpen: boolean,
+	menu: boolean
 }
 interface isProps{
 	history: any
@@ -18,20 +19,29 @@ class SidebarComponent extends React.Component <isProps, isState> {
         super(props);
         this.state = {
             isOpen: false,
+	        menu: false,
         };
+	    this.toggleMenu = this.toggleMenu.bind(this);
     }
 
 	onActive = (match: any, location: any): void => {
-    	console.log('match', this.props);
-	    console.log('location', location);
+    	// console.log('match', this.props);
+	   // console.log('location', location);
+	}
+
+	toggleMenu() {
+	    this.setState({ menu: !this.state.menu });
 	}
 
 	render() {
+	    const show = (this.state.menu) ? 'show' : '';
 	    return (
 	        <nav className="sidebar sidebar-offcanvas" id="sidebar">
 	            <ul className="nav">
 		            <li className="nav-item">
 			            <NavLink
+				            exact
+				            activeClassName="active"
 				            className="nav-link"
 				            to="/admin"
 			            >
@@ -56,6 +66,8 @@ class SidebarComponent extends React.Component <isProps, isState> {
 				            <ul className="nav flex-column sub-menu">
 					            <li className="nav-item">
 						            <NavLink
+							            exact
+							            activeClassName="active"
 							            className="nav-link"
 							            to="/admin/users"
 						            >
@@ -80,7 +92,12 @@ class SidebarComponent extends React.Component <isProps, isState> {
 			            <div className="collapse" id="icons">
 				            <ul className="nav flex-column sub-menu">
 					            <li className="nav-item">
-						            <NavLink className="nav-link" to="/admin/icons/flag">Flag icons</NavLink>
+						            <NavLink
+							            exact
+							            activeClassName="active"
+							            className="nav-link"
+							            to="/admin/icons/flag"
+						            >Flag icons</NavLink>
 					            </li>
 					            <li className="nav-item">
 						            <NavLink

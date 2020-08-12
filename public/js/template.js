@@ -5,9 +5,10 @@
         const scroller = $('.container-scroller');
         const footer = $('.footer');
         const sidebar = $('.sidebar');
-
+        console.log('ok vao day');
         // Add active class to nav-link based on url dynamically
         // Active class can be hard coded directly in html file also as required
+        // eslint-disable-next-line no-restricted-globals
         const current = location.pathname.split('/').slice(-1)[0].replace(/^\/|\/$/g, '');
         function addActiveClass(element) {
             if (current === '') {
@@ -54,7 +55,6 @@
         });
 
         // Change sidebar and content-wrapper height
-        applyStyles();
 
         function applyStyles() {
             // Applying perfect scrollbar
@@ -72,6 +72,7 @@
                 }
             }
         }
+        applyStyles();
 
         $('[data-toggle="minimize"]').on('click', () => {
             if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
