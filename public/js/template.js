@@ -5,11 +5,11 @@
         const scroller = $('.container-scroller');
         const footer = $('.footer');
         const sidebar = $('.sidebar');
-        console.log('ok vao day');
         // Add active class to nav-link based on url dynamically
         // Active class can be hard coded directly in html file also as required
         // eslint-disable-next-line no-restricted-globals
         const current = location.pathname.split('/').slice(-1)[0].replace(/^\/|\/$/g, '');
+        console.log(current);
         function addActiveClass(element) {
             if (current === '') {
                 // for root url
@@ -38,7 +38,6 @@
 
         $('.nav li a', sidebar).each(function () {
             const $this = $(this);
-            console.log('sidebar');
             addActiveClass($this);
         });
 
@@ -50,7 +49,6 @@
         // Close other submenu in sidebar on opening any
 
         sidebar.on('show.bs.collapse', '.collapse', () => {
-            console.log('hide');
             sidebar.find('.collapse.show').collapse('hide');
         });
 

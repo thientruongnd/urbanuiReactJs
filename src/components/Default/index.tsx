@@ -25,7 +25,6 @@ class DefaultComponent extends React.Component <isProps, isState> {
         const {
             children,
         } = this.props;
-        console.log(children);
         return (
             <div className="container-fluid page-body-wrapper full-page-wrapper">
                 <div className="content-wrapper d-flex align-items-stretch auth auth-img-bg">

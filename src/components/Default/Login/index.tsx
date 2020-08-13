@@ -5,10 +5,11 @@
 import * as React from 'react';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
-
+import { Route, Redirect } from 'react-router-dom';
 
 interface isState{
-	isState: boolean
+	isState: boolean,
+	isLogin: boolean,
 }
 interface isProps{
 	history: any
@@ -19,12 +20,16 @@ class LoginComponent extends React.Component <isProps, isState> {
         super(props);
         this.state = {
             isState: false,
+	        isLogin: false,
         };
     }
 
-	handleLogin = (e) => {
+	handleLogin = (e): void => {
+    	console.log(e);
 	    const { history } = this.props;
-	    history.push('/admin');
+	    // history.push('/admin');
+	    window.location.replace('/admin');
+	   // this.setState({ isLogin: true });
 	}
 
 	render() {

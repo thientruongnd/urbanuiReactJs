@@ -11,13 +11,27 @@ import AdminLayoutRoute from '../commons/AdminLayoutRoute';
 import DefaultLayoutRoute from '../commons/DefaultLayoutRoute';
 import NotFoundRoute from '../commons/NotFoundRoute';
 import { ADMIN_ROUTES, ROUTES } from '../constants';
+/** template */
+import 'bootstrap/scss/bootstrap.scss';
+import '@mdi/font/css/materialdesignicons.min.css';
+import 'typicons.font/src/font/typicons.css';
+import 'font-awesome/css/font-awesome.min.css';
+import '../../public/css/style.css';
 
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap.min';
+import 'perfect-scrollbar/dist/perfect-scrollbar.min';
+import 'chart.js/dist/Chart.min';
+import '../../public/js/off-canvas';
+import '../../public/js/hoverable-collapse';
+import '../../public/js/template';
+
+/** end template */
 const store = configureStore();
 
 interface isState{
 	isOpen: boolean
 }
-
 class App extends React.Component <{}, isState> {
     constructor(props: {}) {
         super(props);

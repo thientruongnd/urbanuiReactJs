@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom';
 
 interface isState{
 	isOpen: boolean,
-	menu: boolean
 }
 interface isProps{
 	history: any
@@ -19,127 +18,126 @@ class SidebarComponent extends React.Component <isProps, isState> {
         super(props);
         this.state = {
             isOpen: false,
-	        menu: false,
         };
-	    this.toggleMenu = this.toggleMenu.bind(this);
     }
 
 	onActive = (match: any, location: any): void => {
     	// console.log('match', this.props);
-	   // console.log('location', location);
+	   console.log('location', location);
 	}
 
-	toggleMenu() {
-	    this.setState({ menu: !this.state.menu });
+	onChange =(element: any): void => {
+    	console.log(element);
+    	// console.log(element.attr('href'));
 	}
 
 	render() {
-	    const show = (this.state.menu) ? 'show' : '';
 	    return (
-	        <nav className="sidebar sidebar-offcanvas" id="sidebar">
-	            <ul className="nav">
-		            <li className="nav-item">
-			            <NavLink
-				            exact
-				            activeClassName="active"
-				            className="nav-link"
-				            to="/admin"
-			            >
-				            <i className="typcn typcn-device-desktop menu-icon" />
-				            <span className="menu-title">Dashboard</span>
-				            <div className="badge badge-danger">new</div>
-			            </NavLink>
-		            </li>
-		            <li className="nav-item">
-			            <a
-	                        className="nav-link"
-	                        data-toggle="collapse"
-	                        href="#auth"
-	                        aria-expanded="false"
-			               aria-controls="auth"
-			            >
-				            <i className="typcn typcn-user-add-outline menu-icon" />
-				            <span className="menu-title">User Pages</span>
-				            <i className="menu-arrow" />
-			            </a>
-			            <div className="collapse" id="auth">
-				            <ul className="nav flex-column sub-menu">
-					            <li className="nav-item">
-						            <NavLink
-							            exact
-							            activeClassName="active"
-							            className="nav-link"
-							            to="/admin/users"
-						            >
-							            Danh sách nhân viên
-						            </NavLink>
-					            </li>
-				            </ul>
-			            </div>
-		            </li>
-		            <li className="nav-item">
-			            <a
-				            className="nav-link"
-				            data-toggle="collapse"
-				            href="#icons"
-				            aria-expanded="false"
-				            aria-controls="icons"
-			            >
-				            <i className="typcn typcn-compass menu-icon" />
-				            <span className="menu-title">Icons</span>
-				            <i className="menu-arrow" />
-			            </a>
-			            <div className="collapse" id="icons">
-				            <ul className="nav flex-column sub-menu">
-					            <li className="nav-item">
-						            <NavLink
-							            exact
-							            activeClassName="active"
-							            className="nav-link"
-							            to="/admin/icons/flag"
-						            >Flag icons</NavLink>
-					            </li>
-					            <li className="nav-item">
-						            <NavLink
-							            exact
-							            activeClassName="active"
-							            className="nav-link"
-							            to="/admin/icons/mdi"
-							            isActive={(match, location) => this.onActive(match, location)}
-						            >Mdi icons</NavLink>
-					            </li>
-					            <li className="nav-item">
-						            <NavLink
-							            exact
-							            activeClassName="active"
-							            className="nav-link"
-							            to="/admin/icons/font-awesome"
-						            >Font Awesome
-						            </NavLink>
-					            </li>
-					            <li className="nav-item">
-						            <NavLink
-	                                    exact
-						                      activeClassName="active"
-						                      className="nav-link"
-						                      to="/admin/icons/simple-line"
-						            >Simple line icons
-						            </NavLink>
-					            </li>
-					            <li className="nav-item">
-						            <NavLink
-	                                    exact
-						                      activeClassName="active"
-						                      className="nav-link"
-						                      to="/admin/icons/themify"
-						            >Themify icons
-						            </NavLink>
-					            </li>
-				            </ul>
-			            </div>
-		            </li>
-	            </ul>
-	        </nav>
+		    <nav className="sidebar sidebar-offcanvas" id="sidebar">
+			    <ul className="nav">
+				    <li className="nav-item">
+					    <NavLink
+						    exact
+						    activeClassName="active"
+						    className="nav-link"
+						    to="/admin"
+					    >
+						    <i className="typcn typcn-device-desktop menu-icon" />
+						    <span className="menu-title">Dashboard</span>
+						    <div className="badge badge-danger">new</div>
+					    </NavLink>
+				    </li>
+				    <li className="nav-item">
+					    <a
+						    className="nav-link"
+						    data-toggle="collapse"
+						    href="#auth"
+						    aria-expanded="false"
+						    aria-controls="auth"
+					    >
+						    <i className="typcn typcn-user-add-outline menu-icon" />
+						    <span className="menu-title">User Pages</span>
+						    <i className="menu-arrow" />
+					    </a>
+					    <div className="collapse" id="auth">
+						    <ul className="nav flex-column sub-menu">
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/users"
+								    >
+									    Danh sách nhân viên
+								    </NavLink>
+							    </li>
+						    </ul>
+					    </div>
+				    </li>
+				    <li className="nav-item">
+					    <a
+						    className="nav-link"
+						    data-toggle="collapse"
+						    href="#icons"
+						    aria-expanded="false"
+						    aria-controls="icons"
+						    onClick={(e) => this.onChange(e)}
+					    >
+						    <i className="typcn typcn-compass menu-icon" />
+						    <span className="menu-title">Icons</span>
+						    <i className="menu-arrow" />
+					    </a>
+					    <div className="collapse show" id="icons">
+						    <ul className="nav flex-column sub-menu">
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/icons/flag"
+								    >Flag icons</NavLink>
+							    </li>
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/icons/mdi"
+									    isActive={(match, location) => this.onActive(match, location)}
+								    >Mdi icons</NavLink>
+							    </li>
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/icons/font-awesome"
+								    >Font Awesome
+								    </NavLink>
+							    </li>
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/icons/simple-line"
+								    >Simple line icons
+								    </NavLink>
+							    </li>
+							    <li className="nav-item">
+								    <NavLink
+									    exact
+									    activeClassName="active"
+									    className="nav-link"
+									    to="/admin/icons/themify"
+								    >Themify icons
+								    </NavLink>
+							    </li>
+						    </ul>
+					    </div>
+				    </li>
+			    </ul>
+		    </nav>
 	    );
 	}
 }
