@@ -7,16 +7,17 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
-/* const VENDOR_LIBS = [
-    'axios',
+
+const VENDOR_LIBS = [
     'jquery',
     'react',
+    'react-router',
     'react-dom',
     'react-redux',
     'react-router-dom',
     'redux',
     'redux-devtools-extension',
-]; */
+];
 const devServer = {
     port: 4600,
     open: true,
@@ -35,12 +36,12 @@ const devServer = {
 module.exports = {
     entry: {
         bundle: './src/index.tsx',
-        // vendor: VENDOR_LIBS,
+        vendor: VENDOR_LIBS,
 
     },
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: '[name].[chunkhash].js',
+        filename: '[hash]-[name].js',
         publicPath: '/',
     },
     module: {
@@ -67,6 +68,18 @@ module.exports = {
                         options: {
                             name: '[hash]-[name].[ext]',
                             outputPath: 'assets/fonts/',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.ico$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: '/',
                         },
                     },
                 ],

@@ -2,10 +2,14 @@
  Mr : Dang Xuan Truong
  Email: truongdx@runsystem.net
  */
-import * as React from 'react'
+import * as React from 'react';
 import Navbar from './Menu/Navbar';
 import Sidebar from './Menu/Sidebar';
 import Footer from './Footer/Footer';
+
+const path = require('path');
+// import '../../../public/js/template';
+// import template from '../../../public/js/template';
 
 interface isState{
 	isState: boolean
@@ -19,6 +23,17 @@ class Dashboard extends React.Component <isProps, isState> {
         this.state = {
             isState: false,
         };
+    }
+
+    componentDidMount() {
+	    // eslint-disable-next-line global-require
+        /* const src = path.resolve(__dirname, '/public/js/template.js');
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = src;
+        console.log(script);
+	    document.body.appendChild(script); */
+        console.log('componentDidMount Dashboard');
     }
 
     render() {

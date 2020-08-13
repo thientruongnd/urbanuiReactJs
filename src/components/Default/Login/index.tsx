@@ -27,8 +27,8 @@ class LoginComponent extends React.Component <isProps, isState> {
 	handleLogin = (e): void => {
     	console.log(e);
 	    const { history } = this.props;
-	    // history.push('/admin');
-	    window.location.replace('/admin');
+	    history.push('/admin');
+	    // window.location.replace('/admin');
 	   // this.setState({ isLogin: true });
 	}
 

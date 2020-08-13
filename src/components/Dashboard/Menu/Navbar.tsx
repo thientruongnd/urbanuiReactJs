@@ -18,8 +18,8 @@ import face2 from '../../../../public/images/faces/face2.jpg';
 import face3 from '../../../../public/images/faces/face3.jpg';
 
 interface isState{
-	isOpen: boolean
-	isToggle: boolean,
+	isOpen: boolean,
+	isToggle: boolean
 }
 interface isProps{
 	history: any
@@ -29,7 +29,7 @@ class NavbarComponent extends React.Component <isProps, isState> {
         super(props);
         this.state = {
             isOpen: false,
-	        isToggle: false
+	        isToggle: false,
         };
     }
 
@@ -39,7 +39,7 @@ class NavbarComponent extends React.Component <isProps, isState> {
 	};
 
 	handleMinimize=(): void => {
-		this.setState({isToggle: !this.state.isToggle});
+	    this.setState({ isToggle: !this.state.isToggle });
 	    console.log('vao day');
 	};
 
@@ -54,7 +54,7 @@ class NavbarComponent extends React.Component <isProps, isState> {
 	                    <Link className="navbar-brand brand-logo-mini" to="/admin">
 	                        <img src={Logo} alt="logo" />
 	                    </Link>
-	                    <button className="navbar-toggler  align-self-center" type="button" onClick={this.handleMinimize}>
+	                    <button className="navbar-toggler  align-self-center" type="button" data-toggle="minimize">
 	                        <span className="typcn typcn-th-menu" />
 	                    </button>
 	                </div>

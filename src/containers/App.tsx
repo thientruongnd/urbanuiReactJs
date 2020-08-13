@@ -25,7 +25,6 @@ import 'chart.js/dist/Chart.min';
 import '../../public/js/off-canvas';
 import '../../public/js/hoverable-collapse';
 import '../../public/js/template';
-
 /** end template */
 const store = configureStore();
 

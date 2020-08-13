@@ -9,7 +9,6 @@
         // Active class can be hard coded directly in html file also as required
         // eslint-disable-next-line no-restricted-globals
         const current = location.pathname.split('/').slice(-1)[0].replace(/^\/|\/$/g, '');
-        console.log(current);
         function addActiveClass(element) {
             if (current === '') {
                 // for root url
